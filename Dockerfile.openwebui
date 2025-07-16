@@ -3,24 +3,23 @@ FROM ghcr.io/open-webui/open-webui:main
 # Switch to root for system modifications
 USER root
 
-# Install system dependencies needed for MCPO integration
+# Install all system dependencies in a single layer
 RUN apt-get update && apt-get install -y \
     curl \
     netcat-openbsd \
     supervisor \
-    && rm -rf /var/lib/apt/lists/*
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
-# Install Node.js for potential future MCP servers that need it
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install -y nodejs
-
-# Create necessary directories
+# Create necessary directories in one layer
 RUN mkdir -p /app/config /var/log/openwebui /var/log/supervisor
 
 # Copy MCPO configuration
 COPY config/mcpo-config.json /app/config/mcpo-config.json
 
-# Create a simple MCPO integration script
+# Create MCPO integration script with better error handling
 RUN cat > /app/setup-mcpo-integration.py << 'EOF'
 #!/usr/bin/env python3
 """
@@ -57,7 +56,6 @@ def discover_mcpo_tools(mcpo_url: str, api_key: str = None) -> Dict:
         headers['Authorization'] = f'Bearer {api_key}'
     
     try:
-        # Get tools list
         response = requests.get(f"{mcpo_url}/tools/list", headers=headers, timeout=10)
         if response.status_code == 200:
             tools = response.json()
@@ -74,7 +72,6 @@ def setup_mcpo_integration():
     """Setup MCPO integration for OpenWebUI"""
     print("Setting up MCPO integration...")
     
-    # Get MCPO server configurations from environment
     mcpo_servers = os.getenv('MCPO_SERVERS', '').split(',')
     
     for server_config in mcpo_servers:
@@ -86,12 +83,9 @@ def setup_mcpo_integration():
         
         print(f"Setting up {server_name} at {server_url}")
         
-        # Wait for server to be ready
         if wait_for_mcpo_server(server_url):
-            # Discover tools
             tools = discover_mcpo_tools(server_url, api_key)
             
-            # Store configuration for OpenWebUI
             config_path = f"/app/backend/data/mcpo_{server_name}_config.json"
             os.makedirs(os.path.dirname(config_path), exist_ok=True)
             
@@ -111,10 +105,7 @@ if __name__ == "__main__":
     setup_mcpo_integration()
 EOF
 
-# Make the script executable
-RUN chmod +x /app/setup-mcpo-integration.py
-
-# Create supervisor configuration for managing processes
+# Create supervisor configuration
 RUN cat > /etc/supervisor/conf.d/openwebui.conf << 'EOF'
 [supervisord]
 nodaemon=true
@@ -148,15 +139,15 @@ environment=HOME="/app",USER="root"
 priority=20
 EOF
 
-# Create startup script that handles dependencies
+# Create optimized startup script
 RUN cat > /app/entrypoint.sh << 'EOF'
 #!/bin/bash
 
 set -e
 
-echo "🚀 Starting OpenWebUI with MCPO integration..."
+echo "Starting OpenWebUI with MCPO integration..."
 
-# Set default environment variables
+# Set secure defaults for environment variables
 export DATA_DIR=${DATA_DIR:-/app/backend/data}
 export UPLOAD_DIR=${UPLOAD_DIR:-/app/backend/data/uploads}
 export WEBUI_URL=${WEBUI_URL:-http://localhost:8080}
@@ -173,7 +164,7 @@ echo "   DATA_DIR: $DATA_DIR"
 echo "   UPLOAD_DIR: $UPLOAD_DIR"
 echo "   WEBUI_URL: $WEBUI_URL"
 
-# Check for MCPO server configuration
+# Log MCPO server configuration
 if [ -n "$MCPO_SERVERS" ]; then
     echo "MCPO servers configured: $MCPO_SERVERS"
 else
@@ -185,15 +176,18 @@ echo "Starting supervisor..."
 exec /usr/bin/supervisord -c /etc/supervisor/conf.d/openwebui.conf
 EOF
 
-# Make entrypoint executable
-RUN chmod +x /app/entrypoint.sh
+# Make scripts executable
+RUN chmod +x /app/setup-mcpo-integration.py /app/entrypoint.sh
 
-# Health check
+# Set environment variables with secure defaults
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    DATA_DIR=/app/backend/data \
+    UPLOAD_DIR=/app/backend/data/uploads
+
+# Health check with better error handling
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:8080/health || exit 1
-
-# Switch back to the original user for security
-USER root
 
 # Set working directory
 WORKDIR /app

@@ -1,6 +1,6 @@
 FROM python:3.12-slim
 
-# Install system dependencies
+# Install system dependencies in a single layer and clean up
 RUN apt-get update && apt-get install -y \
     curl \
     netcat-openbsd \
@@ -8,41 +8,41 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     libffi-dev \
     git \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 # Install uv for fast package management
-RUN pip install --upgrade pip uv
+RUN pip install --no-cache-dir --upgrade pip uv
 
-# Pre-install mcpo to cache in Docker layer
-RUN uvx mcpo --help > /dev/null 2>&1 || echo "MCPO will be installed on first use"
-
-# Create app user
-RUN useradd -m -u 1001 appuser
-
-# Create necessary directories
-RUN mkdir -p /app /var/log/mcpo /keys /app/config \
+# Create app user and directories in one layer
+RUN useradd -m -u 1001 appuser \
+    && mkdir -p /app /var/log/mcpo /keys /app/config \
     && chown -R appuser:appuser /app /var/log/mcpo
 
-# Switch to non-root user
+# Switch to non-root user early for security
 USER appuser
 
 # Set working directory
 WORKDIR /app
 
-# Pre-install common MCP servers to speed up startup
-RUN uvx mcp-snowflake --help > /dev/null 2>&1 || echo "Will install mcp-snowflake on first use"
+# Pre-install common tools to cache in Docker layer
+RUN uvx mcpo --help > /dev/null 2>&1 || echo "MCPO will be installed on first use" \
+    && uvx mcp-snowflake --help > /dev/null 2>&1 || echo "Will install mcp-snowflake on first use"
 
-# Environment variables with defaults
-ENV MCPO_PORT=8001
-ENV MCPO_HOST=0.0.0.0
-ENV MCPO_API_KEY=""
+# Environment variables with secure defaults
+ENV MCPO_PORT=8001 \
+    MCPO_HOST=0.0.0.0 \
+    MCPO_API_KEY="" \
+    PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1
 
 # Expose port for MCPO server
 EXPOSE 8001
 
-# Health check using proper /health endpoint
+# Improved health check with proper error handling
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-    CMD curl -f ${MCPO_API_KEY:+-H "Authorization: Bearer $MCPO_API_KEY"} http://localhost:${MCPO_PORT}/health || exit 1
+    CMD curl -f ${MCPO_API_KEY:+-H "Authorization: Bearer $MCPO_API_KEY"} \
+        http://localhost:${MCPO_PORT}/health || exit 1
 
-# Default command (will be overridden by docker-compose)
-CMD ["sh", "-c", "uvx mcpo --host ${MCPO_HOST} --port ${MCPO_PORT} ${MCPO_API_KEY:+--api-key \"$MCPO_API_KEY\"} -- uvx mcp-snowflake"] 
+# Default command with better error handling
+CMD ["sh", "-c", "set -e; echo 'Starting MCPO server...'; uvx mcpo --host ${MCPO_HOST} --port ${MCPO_PORT} ${MCPO_API_KEY:+--api-key \"$MCPO_API_KEY\"} -- uvx mcp-snowflake"] 

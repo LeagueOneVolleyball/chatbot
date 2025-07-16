@@ -1,185 +1,423 @@
 #!/bin/bash
-# MCP Integration Validation Script
+#
+# validate-setup.sh
+# Validate OpenWebUI + MCPO setup configuration
+#
+# Usage: ./scripts/validate-setup.sh [--fix]
+#
+# Options:
+#   --fix    Attempt to fix common issues automatically
+#
+# Requirements:
+#   - Docker and Docker Compose installed
+#   - Environment variables configured
 
-set -e
+set -euo pipefail
 
-echo "Validating MCP Setup..."
+# Script configuration
+readonly SCRIPT_NAME="$(basename "$0")"
+readonly LOG_PREFIX="[$SCRIPT_NAME]"
 
-# Function to check if required tools are available
-check_requirements() {
-    echo "Checking requirements..."
+# Configuration
+FIX_MODE=false
+
+# Color codes for output
+readonly RED='\033[0;31m'
+readonly GREEN='\033[0;32m'
+readonly YELLOW='\033[1;33m'
+readonly BLUE='\033[0;34m'
+readonly NC='\033[0m' # No Color
+
+# Logging functions
+log() {
+    echo -e "$LOG_PREFIX $*" >&2
+}
+
+log_info() {
+    echo -e "$LOG_PREFIX ${BLUE}INFO:${NC} $*" >&2
+}
+
+log_success() {
+    echo -e "$LOG_PREFIX ${GREEN}SUCCESS:${NC} $*" >&2
+}
+
+log_warning() {
+    echo -e "$LOG_PREFIX ${YELLOW}WARNING:${NC} $*" >&2
+}
+
+log_error() {
+    echo -e "$LOG_PREFIX ${RED}ERROR:${NC} $*" >&2
+}
+
+# Function to check if command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Function to check required tools
+check_required_tools() {
+    log_info "Checking required tools..."
     
-    local required_tools=("docker" "gcloud" "curl")
     local missing_tools=()
     
-    for tool in "${required_tools[@]}"; do
-        if ! command -v "$tool" &> /dev/null; then
-            missing_tools+=("$tool")
-        fi
-    done
-    
-    if [ ${#missing_tools[@]} -ne 0 ]; then
-        echo "ERROR: Missing required tools: ${missing_tools[*]}"
-        echo "Please install the missing tools before proceeding."
-        exit 1
+    if ! command_exists docker; then
+        missing_tools+=("docker")
     fi
     
-    echo "All required tools are available"
+    if ! command_exists docker-compose; then
+        missing_tools+=("docker-compose")
+    fi
+    
+    if ! command_exists curl; then
+        missing_tools+=("curl")
+    fi
+    
+    if [ ${#missing_tools[@]} -eq 0 ]; then
+        log_success "All required tools are installed"
+        return 0
+    else
+        log_error "Missing required tools: ${missing_tools[*]}"
+        log "Please install the missing tools before proceeding"
+        return 1
+    fi
 }
 
-# Function to validate Google Cloud configuration
-check_gcloud_config() {
-    echo "Checking Google Cloud configuration..."
+# Function to check Docker service
+check_docker_service() {
+    log_info "Checking Docker service..."
     
-    if ! gcloud auth list --filter=status:ACTIVE --format="value(account)" | grep -q "@"; then
-        echo "ERROR: No active Google Cloud authentication found"
-        echo "Please run: gcloud auth login"
-        exit 1
-    fi
-    
-    local project_id=$(gcloud config get-value project 2>/dev/null)
-    if [ -z "$project_id" ]; then
-        echo "ERROR: No default project set"
-        echo "Please run: gcloud config set project YOUR_PROJECT_ID"
-        exit 1
-    fi
-    
-    echo "Google Cloud configuration is valid (Project: $project_id)"
-}
-
-# Function to check secrets
-check_secrets() {
-    echo "Checking Google Secret Manager secrets..."
-    
-    local required_secrets=("openwebui-openai-api-key" "snowflake-account" "snowflake-user" "snowflake-private-key")
-    local missing_secrets=()
-    
-    for secret in "${required_secrets[@]}"; do
-        if ! gcloud secrets describe "$secret" &>/dev/null; then
-            missing_secrets+=("$secret")
-        fi
-    done
-    
-    if [ ${#missing_secrets[@]} -ne 0 ]; then
-        echo "WARNING: Missing secrets: ${missing_secrets[*]}"
-        echo "Run './scripts/setup-secrets.sh' to create required secrets"
+    if ! docker info >/dev/null 2>&1; then
+        log_error "Docker is not running or accessible"
+        log "Please start Docker service and ensure current user has permissions"
         return 1
     fi
     
-    echo "All required secrets are configured"
+    log_success "Docker service is running"
+    return 0
 }
 
-# Function to validate Docker configuration files
-check_docker_config() {
-    echo "Checking Docker configuration..."
+# Function to validate environment file
+validate_environment() {
+    log_info "Validating environment configuration..."
     
-    if [ ! -f "Dockerfile" ]; then
-        echo "ERROR: Dockerfile not found"
-        exit 1
+    # Check if .env exists
+    if [ ! -f .env ]; then
+        log_warning ".env file not found"
+        if [ "$FIX_MODE" = true ] && [ -f env.example ]; then
+            log_info "Creating .env from env.example..."
+            cp env.example .env
+            log_warning "Please edit .env with your actual values"
+        else
+            log "Please copy env.example to .env and configure your values"
+            return 1
+        fi
     fi
     
-    if [ ! -f "docker-compose.yml" ]; then
-        echo "ERROR: docker-compose.yml not found"
-        exit 1
-    fi
+    # Source environment file
+    set -a
+    source .env
+    set +a
     
-    # Test Docker build (basic syntax check)
-    echo "Testing Dockerfile syntax..."
-    if ! docker build --no-cache -t mcp-test . --dry-run 2>/dev/null; then
-        echo "WARNING: Dockerfile has syntax issues (continuing anyway)"
-    else
-        echo "Dockerfile syntax is valid"
-    fi
-}
-
-# Function to validate MCP configuration
-check_mcp_config() {
-    echo "Checking MCP configuration..."
+    # Check required variables
+    local required_vars=(
+        "OPENAI_API_KEY"
+        "SNOWFLAKE_ACCOUNT"
+        "SNOWFLAKE_USER"
+        "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"
+        "MCPO_SNOWFLAKE_API_KEY"
+    )
     
-    if [ ! -f "config/mcp-config.json" ]; then
-        echo "ERROR: MCP configuration file not found"
-        exit 1
-    fi
+    local missing_vars=()
     
-    # Validate JSON syntax
-    if ! python -m json.tool config/mcp-config.json > /dev/null 2>&1; then
-        echo "ERROR: MCP configuration JSON is invalid"
-        exit 1
-    fi
-    
-    echo "MCP configuration is valid"
-}
-
-# Function to check script permissions
-check_script_permissions() {
-    echo "Checking script permissions..."
-    
-    local scripts=("scripts/start-mcp-servers.sh" "scripts/entrypoint.sh" "scripts/build-and-deploy.sh")
-    
-    for script in "${scripts[@]}"; do
-        if [ ! -x "$script" ]; then
-            echo "Making $script executable..."
-            chmod +x "$script"
+    for var in "${required_vars[@]}"; do
+        local var_lower
+        var_lower=$(echo "$var" | tr '[:upper:]' '[:lower:]')
+        # Special case: SNOWFLAKE_PRIVATE_KEY_PASSPHRASE can be empty (no passphrase)
+        if [ "$var" = "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE" ]; then
+            # Check if it's set (even if empty) and not a placeholder
+            if ! declare -p "$var" >/dev/null 2>&1 || [ "${!var}" = "your-${var_lower}-here" ] || [ "${!var}" = "your-${var_lower}" ]; then
+                missing_vars+=("$var")
+            fi
+        else
+            # Regular validation for other variables
+            if [ -z "${!var:-}" ] || [ "${!var}" = "your-${var_lower}-here" ] || [ "${!var}" = "your-${var_lower}" ]; then
+                missing_vars+=("$var")
+            fi
         fi
     done
     
-    echo "All scripts have proper permissions"
+    if [ ${#missing_vars[@]} -eq 0 ]; then
+        log_success "Environment variables are configured"
+        return 0
+    else
+        log_error "Missing or placeholder environment variables: ${missing_vars[*]}"
+        log "Please configure these variables in your .env file"
+        return 1
+    fi
 }
 
-# Function to test MCP package availability
-test_mcp_package() {
-    echo "Testing MCP Snowflake package availability..."
+# Function to check file permissions
+check_file_permissions() {
+    log_info "Checking file permissions..."
     
-    # Create a temporary Docker container to test package installation
-    cat > /tmp/test-mcp.Dockerfile << EOF
-FROM python:3.12-slim
-RUN pip install mcp_snowflake
-RUN python -c "import mcp_snowflake; print('✅ mcp_snowflake package imported successfully')"
-EOF
+    local issues=()
     
-    if docker build -f /tmp/test-mcp.Dockerfile -t mcp-package-test /tmp >/dev/null 2>&1; then
-        echo "MCP Snowflake package can be installed and imported"
-        docker rmi mcp-package-test >/dev/null 2>&1
-    else
-        echo "WARNING: MCP Snowflake package installation test failed"
+    # Check script executability
+    local scripts=(
+        "scripts/deploy-gcp-vm.sh"
+        "scripts/deploy-app-to-vm.sh"
+        "scripts/upload-to-vm.sh"
+        "scripts/validate-setup.sh"
+    )
+    
+    for script in "${scripts[@]}"; do
+        if [ -f "$script" ] && [ ! -x "$script" ]; then
+            if [ "$FIX_MODE" = true ]; then
+                log_info "Making $script executable..."
+                chmod +x "$script"
+            else
+                issues+=("$script is not executable")
+            fi
+        fi
+    done
+    
+    # Check logs directory
+    if [ ! -d logs ]; then
+        if [ "$FIX_MODE" = true ]; then
+            log_info "Creating logs directory..."
+            mkdir -p logs
+        else
+            issues+=("logs directory does not exist")
+        fi
     fi
     
-    rm -f /tmp/test-mcp.Dockerfile
+    # Check config directory
+    if [ ! -d config ]; then
+        if [ "$FIX_MODE" = true ]; then
+            log_info "Creating config directory..."
+            mkdir -p config
+        else
+            issues+=("config directory does not exist")
+        fi
+    fi
+    
+    if [ ${#issues[@]} -eq 0 ]; then
+        log_success "File permissions are correct"
+        return 0
+    else
+        log_error "Permission issues found:"
+        printf '%s\n' "${issues[@]}" | sed 's/^/    /'
+        return 1
+    fi
 }
 
-# Main validation function
+# Function to validate Docker configuration
+validate_docker_config() {
+    log_info "Validating Docker configuration..."
+    
+    # Check if docker-compose.yml exists
+    if [ ! -f docker-compose.yml ]; then
+        log_error "docker-compose.yml not found"
+        return 1
+    fi
+    
+    # Validate docker-compose syntax
+    if ! docker-compose config >/dev/null 2>&1; then
+        log_error "docker-compose.yml has syntax errors"
+        log "Run 'docker-compose config' to see detailed errors"
+        return 1
+    fi
+    
+    # Check Dockerfile existence
+    if [ ! -f Dockerfile.openwebui ]; then
+        log_error "Dockerfile.openwebui not found"
+        return 1
+    fi
+    
+    if [ ! -f Dockerfile.mcpo ]; then
+        log_error "Dockerfile.mcpo not found"
+        return 1
+    fi
+    
+    log_success "Docker configuration is valid"
+    return 0
+}
+
+# Function to check network connectivity
+check_network_connectivity() {
+    log_info "Checking network connectivity..."
+    
+    local endpoints=(
+        "https://api.openai.com"
+        "https://hub.docker.com"
+        "https://pypi.org"
+    )
+    
+    local failed_endpoints=()
+    
+    for endpoint in "${endpoints[@]}"; do
+        if ! curl -s --connect-timeout 5 "$endpoint" >/dev/null; then
+            failed_endpoints+=("$endpoint")
+        fi
+    done
+    
+    if [ ${#failed_endpoints[@]} -eq 0 ]; then
+        log_success "Network connectivity is working"
+        return 0
+    else
+        log_warning "Cannot reach some endpoints: ${failed_endpoints[*]}"
+        log "This may cause issues during deployment"
+        return 1
+    fi
+}
+
+# Function to validate configuration consistency
+validate_config_consistency() {
+    log_info "Validating configuration consistency..."
+    
+    local issues=()
+    
+    # Source environment if available
+    if [ -f .env ]; then
+        set -a
+        source .env
+        set +a
+    fi
+    
+    # Check port consistency
+    local compose_openwebui_port
+    local compose_mcpo_port
+    
+    compose_openwebui_port=$(grep -A 10 "openwebui:" docker-compose.yml | grep "8080:" | cut -d'"' -f2 | cut -d':' -f1 || echo "8080")
+    compose_mcpo_port=$(grep -A 10 "mcpo-tools:" docker-compose.yml | grep "8001:" | cut -d'"' -f2 | cut -d':' -f1 || echo "8001")
+    
+    if [ "${PORT:-8080}" != "$compose_openwebui_port" ]; then
+        issues+=("PORT mismatch between .env (${PORT:-8080}) and docker-compose.yml ($compose_openwebui_port)")
+    fi
+    
+    if [ "${MCPO_SNOWFLAKE_PORT:-8001}" != "$compose_mcpo_port" ]; then
+        issues+=("MCPO_SNOWFLAKE_PORT mismatch between .env (${MCPO_SNOWFLAKE_PORT:-8001}) and docker-compose.yml ($compose_mcpo_port)")
+    fi
+    
+    if [ ${#issues[@]} -eq 0 ]; then
+        log_success "Configuration is consistent"
+        return 0
+    else
+        log_error "Configuration inconsistencies found:"
+        printf '%s\n' "${issues[@]}" | sed 's/^/    /'
+        return 1
+    fi
+}
+
+# Function to run comprehensive validation
+run_validation() {
+    log "Starting comprehensive validation..."
+    log "=================================="
+    
+    local total_checks=0
+    local passed_checks=0
+    local failed_checks=()
+    
+    # Define all checks
+    local checks=(
+        "check_required_tools:Required tools"
+        "check_docker_service:Docker service"
+        "validate_environment:Environment configuration"
+        "check_file_permissions:File permissions"
+        "validate_docker_config:Docker configuration"
+        "check_network_connectivity:Network connectivity"
+        "validate_config_consistency:Configuration consistency"
+    )
+    
+    # Run each check
+    for check in "${checks[@]}"; do
+        local func_name="${check%%:*}"
+        local check_name="${check##*:}"
+        
+        total_checks=$((total_checks + 1))
+        
+        if $func_name; then
+            passed_checks=$((passed_checks + 1))
+        else
+            failed_checks+=("$check_name")
+        fi
+        
+        echo # Add spacing between checks
+    done
+    
+    # Summary
+    log "Validation Summary"
+    log "=================="
+    log_info "Total checks: $total_checks"
+    log_success "Passed: $passed_checks"
+    
+    if [ ${#failed_checks[@]} -gt 0 ]; then
+        log_error "Failed: ${#failed_checks[@]}"
+        log "Failed checks:"
+        printf '%s\n' "${failed_checks[@]}" | sed 's/^/    /'
+        
+        if [ "$FIX_MODE" = false ]; then
+            log ""
+            log "Run with --fix to attempt automatic fixes for some issues"
+        fi
+        
+        return 1
+    else
+        log_success "All validation checks passed!"
+        log ""
+        log "Your setup is ready for deployment!"
+        return 0
+    fi
+}
+
+# Function to show usage
+show_usage() {
+    cat << EOF
+Usage: $SCRIPT_NAME [OPTIONS]
+
+Validate OpenWebUI + MCPO setup configuration
+
+OPTIONS:
+    --fix       Attempt to fix common issues automatically
+    --help      Show this help message
+
+EXAMPLES:
+    $SCRIPT_NAME                # Run validation checks
+    $SCRIPT_NAME --fix         # Run validation and fix issues
+
+EOF
+}
+
+# Parse command line arguments
+parse_arguments() {
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --fix)
+                FIX_MODE=true
+                shift
+                ;;
+            --help|-h)
+                show_usage
+                exit 0
+                ;;
+            *)
+                log_error "Unknown option: $1"
+                show_usage
+                exit 1
+                ;;
+        esac
+    done
+}
+
+# Main function
 main() {
-    echo "Starting MCP Integration Validation"
-    echo "==================================="
+    parse_arguments "$@"
     
-    check_requirements
-    echo ""
+    if [ "$FIX_MODE" = true ]; then
+        log_info "Running validation with automatic fixes enabled"
+    fi
     
-    check_gcloud_config
-    echo ""
-    
-    check_secrets || echo "WARNING: Secrets not configured - run setup-secrets.sh first"
-    echo ""
-    
-    check_docker_config
-    echo ""
-    
-    check_mcp_config
-    echo ""
-    
-    check_script_permissions
-    echo ""
-    
-    test_mcp_package
-    echo ""
-    
-    echo "==================================="
-    echo "MCP Integration validation completed!"
-    echo ""
-    echo "Next steps:"
-    echo "1. If secrets are missing, run: ./scripts/setup-secrets.sh"
-    echo "2. Build and deploy: ./scripts/build-and-deploy.sh"
-    echo "3. Test the deployment: ./scripts/health-check.py"
+    run_validation
 }
 
 # Execute main function

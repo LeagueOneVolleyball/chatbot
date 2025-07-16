@@ -57,15 +57,15 @@ services:
       - WEBUI_SECRET_KEY=${WEBUI_SECRET_KEY}
       - WEBUI_URL=${WEBUI_URL:-http://localhost:8080}
       
-      # User Permissions - Enable tool access for regular users
+      # User Permissions
       - USER_PERMISSIONS_WORKSPACE_TOOLS_ACCESS=true
       
-      # MCPO Server URLs with API Keys
+      # MCPO Server Configuration
       - MCPO_SNOWFLAKE_URL=http://mcpo-tools:8001
       - MCPO_SNOWFLAKE_API_KEY=${MCPO_SNOWFLAKE_API_KEY:-snowflake-secure-key-2024}
       - MCPO_SERVERS=snowflake:http://mcpo-tools:8001
       
-      # OpenWebUI Data
+      # OpenWebUI Data Directories
       - DATA_DIR=/app/backend/data
       - UPLOAD_DIR=/app/backend/data/uploads
     volumes:
@@ -84,21 +84,6 @@ services:
     restart: unless-stopped
     networks:
       - openwebui-network
-
-  # Future MCPO servers can be added here as separate services
-  # mcpo-github:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.mcpo
-  #   ports:
-  #     - "8002:8002"
-  #   environment:
-  #     - GITHUB_TOKEN=${GITHUB_TOKEN}
-  #     - MCPO_PORT=8002
-  #     - MCPO_HOST=0.0.0.0
-  #     - MCPO_API_KEY=${MCPO_GITHUB_API_KEY:-github-secure-key-2024}
-  #   command: >
-  #     sh -c "uvx mcpo --host 0.0.0.0 --port 8002 --api-key '${MCPO_GITHUB_API_KEY:-github-secure-key-2024}' -- uvx mcp-server-github"
 
 volumes:
   openwebui_data:

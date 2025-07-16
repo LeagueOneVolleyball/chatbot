@@ -10,17 +10,36 @@ PROJECT_ID="comp-tool-poc-lovb"
 ZONE="us-central1-a"
 INSTANCE_NAME="openwebui-mcpo"
 
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Logging functions
+log_info() {
+    echo -e "${GREEN}[INFO]${NC} $1"
+}
+
+log_warn() {
+    echo -e "${YELLOW}[WARN]${NC} $1"
+}
+
+log_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
 # Check if VM exists
 if ! gcloud compute instances describe $INSTANCE_NAME --zone=$ZONE >/dev/null 2>&1; then
-    echo "ERROR: VM $INSTANCE_NAME not found in zone $ZONE"
+    log_error "VM $INSTANCE_NAME not found in zone $ZONE"
     echo "   Run ./scripts/deploy-gcp-vm.sh first to create the VM"
     exit 1
 fi
 
-echo "Found VM: $INSTANCE_NAME"
+log_info "Found VM: $INSTANCE_NAME"
 
 # Create temporary directory with all files
-echo "Preparing files for upload..."
+log_info "Preparing files for upload..."
 TEMP_DIR=$(mktemp -d)
 APP_DIR="$TEMP_DIR/app"
 
@@ -34,50 +53,15 @@ cp -r scripts "$APP_DIR/"
 cp env.example "$APP_DIR/"
 cp README.md "$APP_DIR/"
 
-# Create environment file template for VM
-cat > "$APP_DIR/.env.template" << 'ENV_EOF'
-# OpenWebUI + MCP Servers Environment Configuration for GCP VM
-# Copy this file to .env and fill in your actual values
+# Create logs directory structure
+mkdir -p "$APP_DIR/logs"
+touch "$APP_DIR/logs/.gitkeep"
 
-# ============================================================================
-# OpenAI Configuration
-# ============================================================================
-OPENAI_API_KEY=your-openai-api-key-here
-OPENAI_API_BASE_URL=https://api.openai.com/v1
+# Create keys directory structure (empty for now, key will be uploaded separately)
+mkdir -p "$APP_DIR/keys"
+touch "$APP_DIR/keys/.gitkeep"
 
-# ============================================================================
-# WebUI Configuration
-# ============================================================================
-WEBUI_AUTH=false
-WEBUI_SECRET_KEY=your-secret-key-here
-WEBUI_URL=http://EXTERNAL_IP:8080
-
-# ============================================================================
-# Snowflake Configuration
-# ============================================================================
-SNOWFLAKE_ACCOUNT=UPNOBVJ-OK59235
-SNOWFLAKE_USER=COMP_SERVICE_ACCOUNT
-SNOWFLAKE_PRIVATE_KEY_PATH=/app/keys/comp_role_key.p8
-SNOWFLAKE_PRIVATE_KEY_PASSPHRASE=your-private-key-passphrase
-SNOWFLAKE_WAREHOUSE=COMP_ROLE_WH
-SNOWFLAKE_DATABASE=SILVER_DB
-SNOWFLAKE_SCHEMA=PUBLIC
-SNOWFLAKE_ROLE=COMP_ROLE
-
-# ============================================================================
-# MCPO Configuration
-# ============================================================================
-MCPO_SNOWFLAKE_API_KEY=snowflake-secure-key-2024
-MCPO_SNOWFLAKE_PORT=8001
-MCPO_SNOWFLAKE_HOST=0.0.0.0
-
-# ============================================================================
-# User Permissions Configuration
-# ============================================================================
-USER_PERMISSIONS_WORKSPACE_TOOLS_ACCESS=true
-ENV_EOF
-
-# Update docker-compose.yml for VM deployment (remove local volume mounts)
+# Update docker-compose.yml for VM deployment with proper permissions
 cat > "$APP_DIR/docker-compose.yml" << 'COMPOSE_EOF'
 version: '3.8'
 
@@ -175,7 +159,7 @@ networks:
     driver: bridge
 COMPOSE_EOF
 
-# Create deployment script for the VM
+# Create robust start-services script for the VM
 cat > "$APP_DIR/scripts/start-services.sh" << 'START_EOF'
 #!/bin/bash
 
@@ -184,85 +168,256 @@ set -e
 echo "Starting OpenWebUI + MCPO Services on GCP VM"
 echo "============================================"
 
-# Check if .env file exists
-if [ ! -f .env ]; then
-    echo "ERROR: .env file not found. Please create one based on .env.template"
-    echo "   cp .env.template .env"
-    echo "   vim .env  # Edit with your actual values"
-    exit 1
-fi
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
 
-# Load environment variables
-set -a
-source .env
-set +a
+# Logging functions
+log_info() {
+    echo -e "${GREEN}[INFO]${NC} $1"
+}
 
-# Check if keys directory exists
-if [ ! -d "keys" ]; then
-    echo "ERROR: Keys directory not found. Please upload your Snowflake private key:"
-    echo "   mkdir -p keys"
-    echo "   # Upload your comp_role_key.p8 file to the keys/ directory"
-    exit 1
-fi
+log_warn() {
+    echo -e "${YELLOW}[WARN]${NC} $1"
+}
 
-if [ ! -f "keys/comp_role_key.p8" ]; then
-    echo "ERROR: Snowflake private key not found at keys/comp_role_key.p8"
-    echo "   Please upload your private key file"
-    exit 1
-fi
+log_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
 
-echo "Environment and keys validated"
+# Function to check prerequisites
+check_prerequisites() {
+    log_info "Checking prerequisites..."
+    
+    # Check if .env file exists
+    if [ ! -f .env ]; then
+        log_error ".env file not found. Please ensure the deployment script created one."
+        exit 1
+    fi
+    
+    # Check if keys directory exists and has proper permissions
+    if [ ! -d "keys" ]; then
+        log_error "Keys directory not found. Please ensure deployment script uploaded the private key."
+        exit 1
+    fi
+    
+    if [ ! -f "keys/comp_role_key.p8" ]; then
+        log_error "Snowflake private key not found at keys/comp_role_key.p8"
+        exit 1
+    fi
+    
+    # Check and fix file permissions for Docker containers
+    log_info "Setting up proper file permissions for Docker containers..."
+    
+    # Ensure proper ownership and permissions for keys (UID 1001 = appuser in containers)
+    sudo chown 1001:1001 keys/comp_role_key.p8
+    sudo chmod 644 keys/comp_role_key.p8
+    
+    # Ensure proper ownership and permissions for .env file
+    sudo chown 1001:1001 .env
+    sudo chmod 644 .env
+    
+    # Ensure proper ownership for logs directory
+    sudo chown -R 1001:1001 logs/
+    sudo chmod -R 755 logs/
+    
+    log_info "File permissions configured for Docker containers"
+}
 
-# Stop any existing services
-echo "Stopping existing services..."
-docker-compose down --remove-orphans || true
+# Function to validate environment
+validate_environment() {
+    log_info "Validating environment configuration..."
+    
+    # Load environment variables
+    set -a
+    source .env
+    set +a
+    
+    # Check required variables
+    local required_vars=(
+        "OPENAI_API_KEY"
+        "SNOWFLAKE_ACCOUNT" 
+        "SNOWFLAKE_USER"
+    )
+    
+    local missing_vars=()
+    for var in "${required_vars[@]}"; do
+        if [ -z "${!var:-}" ]; then
+            missing_vars+=("$var")
+        fi
+    done
+    
+    if [ ${#missing_vars[@]} -gt 0 ]; then
+        log_error "Missing required environment variables:"
+        for var in "${missing_vars[@]}"; do
+            echo "  - $var"
+        done
+        exit 1
+    fi
+    
+    log_info "Environment validation passed"
+}
 
-# Build and start services
-echo "Building and starting services..."
-docker-compose build
-docker-compose up -d
+# Function to start services
+start_services() {
+    log_info "Starting Docker services..."
+    
+    # Stop any existing services
+    log_info "Stopping existing services..."
+    sudo docker-compose down --remove-orphans || true
+    
+    # Clean up Docker system
+    log_info "Cleaning up Docker system..."
+    sudo docker system prune -f || true
+    
+    # Build services
+    log_info "Building Docker images..."
+    sudo docker-compose build || {
+        log_error "Failed to build Docker images"
+        exit 1
+    }
+    
+    # Start services
+    log_info "Starting services..."
+    sudo docker-compose up -d || {
+        log_error "Failed to start services"
+        log_info "Checking logs for troubleshooting..."
+        sudo docker-compose logs || true
+        exit 1
+    }
+    
+    log_info "Services started successfully"
+}
 
-# Wait for services to be ready
-echo "Waiting for services to be ready..."
-sleep 15
+# Function to wait for services to be healthy
+wait_for_services() {
+    log_info "Waiting for services to be ready..."
+    
+    local max_attempts=24  # 6 minutes total (24 * 15 seconds)
+    local attempt=1
+    
+    while [ $attempt -le $max_attempts ]; do
+        log_info "Health check attempt $attempt/$max_attempts..."
+        
+        # Check MCPO service health
+        local mcpo_status=$(sudo docker-compose ps mcpo-tools --format json 2>/dev/null | jq -r '.[0].Health // "unknown"' 2>/dev/null || echo "unknown")
+        
+        # Check OpenWebUI service health  
+        local webui_status=$(sudo docker-compose ps openwebui --format json 2>/dev/null | jq -r '.[0].Health // "unknown"' 2>/dev/null || echo "unknown")
+        
+        log_info "MCPO Status: $mcpo_status, OpenWebUI Status: $webui_status"
+        
+        if [[ "$mcpo_status" == "healthy" && "$webui_status" == "healthy" ]]; then
+            log_info "All services are healthy!"
+            return 0
+        fi
+        
+        if [ $attempt -eq $max_attempts ]; then
+            log_warn "Services may not be fully ready after maximum wait time"
+            log_info "Current service status:"
+            sudo docker-compose ps
+            log_info "Recent logs:"
+            sudo docker-compose logs --tail=20
+            return 1
+        fi
+        
+        sleep 15
+        ((attempt++))
+    done
+}
 
-# Check service status
-echo "Service Status:"
-docker-compose ps
+# Function to display final status
+display_status() {
+    # Get external IP
+    local external_ip=$(curl -s http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip -H "Metadata-Flavor: Google" 2>/dev/null || echo "localhost")
+    
+    echo ""
+    echo "🎉 Services Started Successfully!"
+    echo "================================"
+    echo ""
+    echo "🌐 Access URLs:"
+    echo "   OpenWebUI: http://$external_ip:8080"
+    echo "   MCPO API:  http://$external_ip:8001/docs"
+    echo ""
+    echo "📊 Service Status:"
+    sudo docker-compose ps
+    echo ""
+    echo "🔧 Useful Commands:"
+    echo "   View logs:     sudo docker-compose logs -f"
+    echo "   Restart all:   sudo docker-compose restart"
+    echo "   Stop all:      sudo docker-compose down"
+    echo "   Service logs:  sudo docker-compose logs <service_name>"
+    echo ""
+    echo "✅ Your OpenWebUI + MCPO setup is ready!"
+}
 
-# Get external IP for access URLs
-EXTERNAL_IP=$(curl -s http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip -H "Metadata-Flavor: Google" || echo "localhost")
+# Main execution flow
+main() {
+    log_info "Starting service startup process..."
+    
+    # Step 1: Check prerequisites and fix permissions
+    check_prerequisites
+    
+    # Step 2: Validate environment
+    validate_environment
+    
+    # Step 3: Start services
+    start_services
+    
+    # Step 4: Wait for services to be healthy
+    if wait_for_services; then
+        log_info "All services are healthy and ready"
+    else
+        log_warn "Services started but may not be fully ready"
+    fi
+    
+    # Step 5: Display final status
+    display_status
+}
 
-echo ""
-echo "Services started successfully!"
-echo "============================="
-echo "OpenWebUI: http://$EXTERNAL_IP:8080"
-echo "MCPO API: http://$EXTERNAL_IP:8001/docs"
-echo ""
-echo "Useful commands:"
-echo "   View logs: docker-compose logs -f"
-echo "   Restart: docker-compose restart"
-echo "   Stop: docker-compose down"
-echo ""
-echo "Your OpenWebUI + MCPO setup is ready!"
+# Error handling
+trap 'log_error "Service startup failed at line $LINENO. Check the error above."' ERR
 
+# Run main
+main "$@"
 START_EOF
 
 chmod +x "$APP_DIR/scripts/start-services.sh"
 
 # Upload files to VM
-echo "Uploading files to VM..."
-gcloud compute scp --recurse "$APP_DIR" $INSTANCE_NAME:/home/$(whoami)/ --zone=$ZONE
+log_info "Uploading files to VM..."
+gcloud compute scp --recurse "$APP_DIR" $INSTANCE_NAME:/home/$(whoami)/ --zone=$ZONE || {
+    log_error "Failed to upload files to VM"
+    rm -rf "$TEMP_DIR"
+    exit 1
+}
 
-# Move files to correct location and set permissions
-echo "Setting up files on VM..."
+# Move files to correct location and set initial permissions
+log_info "Setting up files on VM..."
 gcloud compute ssh $INSTANCE_NAME --zone=$ZONE --command="
-sudo rm -rf /app/* 2>/dev/null || true
-sudo cp -r /home/$(whoami)/app/* /app/
-sudo chown -R appuser:appuser /app
-sudo chmod +x /app/scripts/*.sh
-echo 'Files uploaded and permissions set'
-"
+    # Remove old app directory contents
+    sudo rm -rf /app/* 2>/dev/null || true
+    
+    # Copy new files
+    sudo cp -r /home/$(whoami)/app/* /app/
+    
+    # Set ownership to appuser (UID 1001) for Docker compatibility
+    sudo chown -R 1001:1001 /app
+    
+    # Set execute permissions on scripts
+    sudo chmod +x /app/scripts/*.sh
+    
+    # Set proper permissions for directories
+    sudo chmod 755 /app/logs /app/keys
+    
+    echo 'Files uploaded and initial permissions set'
+" || {
+    log_error "Failed to set up files on VM"
+    rm -rf "$TEMP_DIR"
+    exit 1
+}
 
 # Clean up
 rm -rf "$TEMP_DIR"
@@ -271,16 +426,22 @@ rm -rf "$TEMP_DIR"
 EXTERNAL_IP=$(gcloud compute instances describe $INSTANCE_NAME --zone=$ZONE --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 
 echo ""
-echo "Upload Complete!"
+log_info "Upload Complete!"
 echo "==============="
 echo "Files uploaded to VM: $INSTANCE_NAME"
 echo "VM External IP: $EXTERNAL_IP"
 echo ""
-echo "Next Steps:"
-echo "1. Connect to VM: gcloud compute ssh $INSTANCE_NAME --zone=$ZONE"
-echo "2. Set up environment: cd /app && cp .env.template .env && vim .env"
-echo "3. Upload Snowflake key: mkdir -p /app/keys && upload comp_role_key.p8"
-echo "4. Start services: cd /app && ./scripts/start-services.sh"
+echo "🔧 Next Steps:"
+echo "1. The main deployment script will:"
+echo "   - Upload environment configuration"
+echo "   - Upload and secure Snowflake private key"
+echo "   - Start services automatically"
 echo ""
-echo "Quick setup command:"
-echo "   ./scripts/deploy-app-to-vm.sh  # Automated setup" 
+echo "📁 File Structure on VM:"
+echo "   /app/                    - Application root"
+echo "   /app/.env               - Environment configuration (to be created)"
+echo "   /app/keys/              - Private keys directory"
+echo "   /app/logs/              - Application logs"
+echo "   /app/scripts/           - Management scripts"
+echo ""
+echo "🚀 Ready for deployment completion!" 
