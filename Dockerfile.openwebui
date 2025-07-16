@@ -1,0 +1,205 @@
+FROM ghcr.io/open-webui/open-webui:main
+
+# Switch to root for system modifications
+USER root
+
+# Install system dependencies needed for MCPO integration
+RUN apt-get update && apt-get install -y \
+    curl \
+    netcat-openbsd \
+    supervisor \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Node.js for potential future MCP servers that need it
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs
+
+# Create necessary directories
+RUN mkdir -p /app/config /var/log/openwebui /var/log/supervisor
+
+# Copy MCPO configuration
+COPY config/mcpo-config.json /app/config/mcpo-config.json
+
+# Create a simple MCPO integration script
+RUN cat > /app/setup-mcpo-integration.py << 'EOF'
+#!/usr/bin/env python3
+"""
+Script to configure OpenWebUI with MCPO servers for MCP integration
+"""
+import os
+import json
+import time
+import requests
+from typing import Dict, List
+
+def wait_for_mcpo_server(url: str, timeout: int = 60) -> bool:
+    """Wait for MCPO server to be ready"""
+    print(f"Waiting for MCPO server at {url}...")
+    
+    for i in range(timeout):
+        try:
+            response = requests.get(f"{url}/health", timeout=5)
+            if response.status_code == 200:
+                print(f"MCPO server at {url} is ready")
+                return True
+        except Exception as e:
+            if i == 0:
+                print(f"Waiting for MCPO server... ({e})")
+            time.sleep(1)
+    
+    print(f"ERROR: MCPO server at {url} did not become ready within {timeout}s")
+    return False
+
+def discover_mcpo_tools(mcpo_url: str, api_key: str = None) -> Dict:
+    """Discover available tools from MCPO server"""
+    headers = {}
+    if api_key:
+        headers['Authorization'] = f'Bearer {api_key}'
+    
+    try:
+        # Get tools list
+        response = requests.get(f"{mcpo_url}/tools/list", headers=headers, timeout=10)
+        if response.status_code == 200:
+            tools = response.json()
+            print(f"Discovered {len(tools.get('tools', []))} tools from {mcpo_url}")
+            return tools
+        else:
+            print(f"WARNING: Failed to get tools from {mcpo_url}: {response.status_code}")
+            return {}
+    except Exception as e:
+        print(f"WARNING: Error discovering tools from {mcpo_url}: {e}")
+        return {}
+
+def setup_mcpo_integration():
+    """Setup MCPO integration for OpenWebUI"""
+    print("Setting up MCPO integration...")
+    
+    # Get MCPO server configurations from environment
+    mcpo_servers = os.getenv('MCPO_SERVERS', '').split(',')
+    
+    for server_config in mcpo_servers:
+        if ':' not in server_config:
+            continue
+            
+        server_name, server_url = server_config.split(':', 1)
+        api_key = os.getenv(f'MCPO_{server_name.upper()}_API_KEY')
+        
+        print(f"Setting up {server_name} at {server_url}")
+        
+        # Wait for server to be ready
+        if wait_for_mcpo_server(server_url):
+            # Discover tools
+            tools = discover_mcpo_tools(server_url, api_key)
+            
+            # Store configuration for OpenWebUI
+            config_path = f"/app/backend/data/mcpo_{server_name}_config.json"
+            os.makedirs(os.path.dirname(config_path), exist_ok=True)
+            
+            with open(config_path, 'w') as f:
+                json.dump({
+                    'server_name': server_name,
+                    'server_url': server_url,
+                    'api_key': api_key,
+                    'tools': tools
+                }, f, indent=2)
+            
+            print(f"Configuration saved for {server_name}")
+    
+    print("MCPO integration setup complete!")
+
+if __name__ == "__main__":
+    setup_mcpo_integration()
+EOF
+
+# Make the script executable
+RUN chmod +x /app/setup-mcpo-integration.py
+
+# Create supervisor configuration for managing processes
+RUN cat > /etc/supervisor/conf.d/openwebui.conf << 'EOF'
+[supervisord]
+nodaemon=true
+user=root
+logfile=/var/log/supervisor/supervisord.log
+pidfile=/var/run/supervisord.pid
+
+[program:mcpo-integration]
+command=python3 /app/setup-mcpo-integration.py
+directory=/app
+autostart=true
+autorestart=false
+startsecs=5
+startretries=3
+stdout_logfile=/var/log/openwebui/mcpo-integration.log
+stderr_logfile=/var/log/openwebui/mcpo-integration.log
+environment=HOME="/app",USER="root"
+priority=10
+
+[program:openwebui]
+command=/app/backend/start.sh
+directory=/app
+user=root
+autostart=true
+autorestart=true
+startsecs=10
+startretries=3
+stdout_logfile=/var/log/openwebui/openwebui.log
+stderr_logfile=/var/log/openwebui/openwebui.log
+environment=HOME="/app",USER="root"
+priority=20
+EOF
+
+# Create startup script that handles dependencies
+RUN cat > /app/entrypoint.sh << 'EOF'
+#!/bin/bash
+
+set -e
+
+echo "🚀 Starting OpenWebUI with MCPO integration..."
+
+# Set default environment variables
+export DATA_DIR=${DATA_DIR:-/app/backend/data}
+export UPLOAD_DIR=${UPLOAD_DIR:-/app/backend/data/uploads}
+export WEBUI_URL=${WEBUI_URL:-http://localhost:8080}
+
+# Create necessary directories
+mkdir -p "$DATA_DIR" "$UPLOAD_DIR" /var/log/openwebui
+
+# Set permissions (skip read-only mounted directories)
+chown -R root:root /app /var/log/openwebui 2>/dev/null || echo "WARNING: Some directories are read-only (expected for mounted volumes)"
+
+echo "Environment setup complete"
+echo "Configuration:"
+echo "   DATA_DIR: $DATA_DIR"
+echo "   UPLOAD_DIR: $UPLOAD_DIR"
+echo "   WEBUI_URL: $WEBUI_URL"
+
+# Check for MCPO server configuration
+if [ -n "$MCPO_SERVERS" ]; then
+    echo "MCPO servers configured: $MCPO_SERVERS"
+else
+    echo "WARNING: No MCPO servers configured"
+fi
+
+# Start supervisor to manage processes
+echo "Starting supervisor..."
+exec /usr/bin/supervisord -c /etc/supervisor/conf.d/openwebui.conf
+EOF
+
+# Make entrypoint executable
+RUN chmod +x /app/entrypoint.sh
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:8080/health || exit 1
+
+# Switch back to the original user for security
+USER root
+
+# Set working directory
+WORKDIR /app
+
+# Expose port
+EXPOSE 8080
+
+# Use our custom entrypoint
+ENTRYPOINT ["/app/entrypoint.sh"] 

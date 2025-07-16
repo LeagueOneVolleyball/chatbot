@@ -1,0 +1,2115 @@
+Starting health monitoring (interval: 30s)
+Press Ctrl+C to stop
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:30:41.748730Z) ===
+Overall Status: UNHEALTHY
+  openwebui: UNHEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - openwebui: unhealthy
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:31:12.128821Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:31:42.410108Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:32:12.637769Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:32:42.945592Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:33:13.383752Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:33:43.689330Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:34:13.988747Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:34:44.268855Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:35:14.584757Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:35:45.041652Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:36:15.453541Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:36:45.827530Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:37:16.160474Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:37:46.518384Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:38:16.906942Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:38:47.259621Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:39:17.582598Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:39:48.119886Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:40:18.500473Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:40:48.862149Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:41:19.265053Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:41:49.641598Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:42:19.973993Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:42:50.372401Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:43:20.745901Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:43:51.079420Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:44:21.517605Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:44:51.874429Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:45:22.180369Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:45:52.535971Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:46:22.877505Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:46:53.231611Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:47:23.632822Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:47:53.966474Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:48:24.339579Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:48:54.642155Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:49:24.966683Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:49:55.424093Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:50:25.897930Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:50:56.388572Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:51:26.764802Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:51:57.211970Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:52:27.482804Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:52:57.734819Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:53:28.013011Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:53:58.609551Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:54:29.005071Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:54:59.362689Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:55:29.817246Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:56:00.263709Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:56:30.733882Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:57:01.193278Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:57:31.571363Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:58:01.905668Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:58:32.580818Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:59:02.890650Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T20:59:33.171127Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:00:03.474927Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:00:33.815758Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:01:04.238410Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:01:34.582517Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:02:05.479398Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:02:36.063949Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:03:06.423018Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:03:36.748684Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:04:07.040872Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:04:37.453067Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:05:07.793958Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:05:38.341129Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:06:08.672945Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:06:39.248338Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:07:09.658170Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:07:40.151016Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:08:10.438484Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:08:40.904830Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:09:11.338855Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:09:41.895832Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:10:12.223551Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:10:42.684526Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:11:13.074321Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:11:43.486741Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:12:13.861351Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:12:44.171269Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:13:14.776187Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:13:45.041373Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:14:15.361973Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:14:45.695497Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:15:16.472047Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:15:46.996046Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:16:17.822698Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:16:48.257824Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:17:18.856833Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:17:49.235328Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:18:19.686213Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:18:50.598593Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:19:21.083073Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:19:52.058159Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:20:22.386578Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:20:53.539809Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:21:23.892721Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:21:54.241632Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:22:24.534555Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:22:55.039904Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:23:25.419356Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:23:55.768923Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:24:26.281268Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:24:56.622783Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:25:26.972571Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:25:57.360381Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:26:27.758280Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:26:58.281071Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:27:29.353694Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:27:59.669056Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:28:29.927629Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:29:00.240209Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:29:30.693837Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:30:01.045689Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+Starting health monitoring (interval: 30s)
+Press Ctrl+C to stop
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:54:44.088712Z) ===
+Overall Status: UNHEALTHY
+  openwebui: UNHEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - openwebui: unhealthy
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:55:14.676015Z) ===
+Overall Status: UNHEALTHY
+  openwebui: UNHEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - openwebui: unhealthy
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:55:45.245775Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:56:16.198845Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:56:46.501432Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:57:16.860343Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:57:47.109903Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:58:17.365946Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:58:47.658179Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:59:18.073098Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T21:59:48.323318Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:00:18.653552Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:00:48.967530Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:01:19.226377Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:01:49.547881Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:02:19.917138Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:02:50.269363Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:03:20.552839Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:03:50.819192Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:04:21.124504Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:04:51.427311Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:05:21.721848Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:05:52.028295Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:06:22.376869Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:06:52.659700Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:07:23.113967Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:07:53.507029Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:08:23.777215Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:08:54.127274Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check.../app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+
+
+=== Health Check Results (2025-07-14T22:09:24.453638Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:09:54.742129Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:10:25.161277Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:10:55.428692Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:11:25.695067Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:11:56.229403Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:12:26.560578Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:12:56.827345Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:13:27.101224Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:13:57.385970Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:14:27.899570Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:14:58.186423Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:15:28.459421Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:15:58.727390Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:16:28.980511Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:16:59.261205Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:17:29.551706Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:17:59.950224Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:18:30.335457Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:19:00.622593Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:19:31.012572Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:20:01.360232Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:20:31.721533Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:21:02.096278Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:21:32.848556Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:22:03.183113Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:22:33.537767Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:23:03.811061Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:23:34.468145Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY
+  supervisor: UNHEALTHY
+
+WARNING: System is not fully healthy!
+  - mcp_snowflake: unhealthy
+  - supervisor: unhealthy
+Performing health check...
+
+=== Health Check Results (2025-07-14T22:24:04.747483Z) ===
+Overall Status: DEGRADED
+  openwebui: HEALTHY
+  mcp_snowflake: UNHEALTHY/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
+/app/health-check.py:166: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  self.health_status['timestamp'] = datetime.utcnow().isoformat() + 'Z'
