@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "snowflake": {
+    "snowflake-mcp": {
       "command": "uvx",
       "args": ["mcp-snowflake"],
       "env": {
@@ -14,13 +14,17 @@
         "SNOWFLAKE_ROLE": "${SNOWFLAKE_ROLE}"
       }
     },
-    "memory": {
+    "time-mcp": {
+      "command": "uvx",
+      "args": ["mcp-server-time", "--local-timezone=America/New_York"]
+    },
+    "memory-mcp": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-memory"]
     },
-    "time": {
-      "command": "uvx",
-      "args": ["mcp-server-time", "--local-timezone=America/New_York"]
+    "sequential-thinking-mcp": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     }
   },
   "security": {
