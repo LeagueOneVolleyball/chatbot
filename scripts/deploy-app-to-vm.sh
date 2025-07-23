@@ -11,7 +11,7 @@ echo ""
 PROJECT_ID="comp-tool-poc-lovb"
 ZONE="us-central1-a"
 INSTANCE_NAME="openwebui-mcpo"
-KEY_PATH="/Users/kevin/dev/keys/comp_role_key.p8"
+KEY_PATH="./keys/comp_role_key.p8"
 
 # Colors for output
 RED='\033[0;31m'
