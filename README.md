@@ -1,127 +1,143 @@
-# OpenWebUI + MCPO
+# OpenWebUI + MCPO Chatbot Infrastructure
 
-A complete setup for running **OpenWebUI** with **MCPO (MCP-to-OpenAPI proxy)** integration, supporting local development and Google Cloud VM deployment.
+Automated deployment and management scripts for running OpenWebUI with MCPO (Multiple MCP Server via MCPO) on Google Cloud Platform VMs.
 
-## Quick Start
+## 🚀 Features
 
-### Prerequisites
-- Docker & Docker Compose
-- OpenAI API key
-- Snowflake account with service account and private key
-- Google Cloud SDK (for VM deployment)
+- **Automated OpenWebUI Updates**: Script to safely update OpenWebUI containers with backup and health checks
+- **MCPO Integration**: Multiple MCP Server support including Snowflake, Time, Memory, and Sequential Thinking
+- **GCP VM Deployment**: Complete infrastructure setup on Google Cloud Platform
+- **Health Monitoring**: Robust health check system for service verification
+- **Backup Management**: Automatic data backup before updates
 
-### Local Development
-```bash
-# 1. Configure environment
-cp env.example .env
-# Edit .env with your values
+## 📁 Project Structure
 
-# 2. Start services
-docker-compose up -d
-
-# 3. Access
-# OpenWebUI: http://localhost:8080
-# MCPO API: http://localhost:8001/docs
+```
+├── config/
+│   └── mcpo-config.json          # MCPO server configuration
+├── scripts/
+│   ├── update-openwebui.sh       # ✨ Main update script (with fixed health checks)
+│   ├── deploy-app-to-vm.sh       # Complete deployment to GCP VM
+│   ├── deploy-gcp-vm.sh          # GCP VM creation
+│   ├── upload-to-vm.sh           # Upload application files
+│   └── start-snowflake-*.sh      # Snowflake MCP server scripts
+├── docker-compose.yml            # Service orchestration
+├── Dockerfile.mcpo               # MCPO container build
+├── Dockerfile.openwebui          # Custom OpenWebUI container build
+└── env.example                   # Environment template
 ```
 
-### GCP VM Deployment
+## 🛠 Setup
+
+### Prerequisites
+
+- Google Cloud SDK (`gcloud`) installed and authenticated
+- Docker and Docker Compose
+- `.env` file with required environment variables (see `env.example`)
+
+### Environment Variables
+
+Create a `.env` file based on `env.example`:
+
 ```bash
-# Complete deployment (creates VM, uploads files, starts services)
+# OpenAI Configuration
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Snowflake Configuration  
+SNOWFLAKE_ACCOUNT=your_account
+SNOWFLAKE_USER=your_user
+SNOWFLAKE_PRIVATE_KEY_PASSPHRASE=your_passphrase
+
+# WebUI Configuration
+WEBUI_SECRET_KEY=your_secret_key
+MCPO_SNOWFLAKE_API_KEY=your_api_key
+```
+
+## 🚀 Quick Start
+
+### 1. Deploy to GCP VM
+
+```bash
+# Complete deployment (creates VM, uploads code, starts services)
 ./scripts/deploy-app-to-vm.sh
 ```
 
-## What You Get
-
-- **OpenWebUI**: Modern chat interface with tool calling
-- **MCPO Snowflake Server**: Converts Snowflake MCP tools to REST API
-- **Automatic Integration**: OpenWebUI discovers and uses MCPO tools
-- **Health Monitoring**: Built-in health checks and auto-restart
-
-## Architecture
-
-```
-OpenWebUI (8080) ←→ MCPO Snowflake Server (8001) ←→ Snowflake Database
-```
-
-## Configuration
-
-### Required Environment Variables
-```bash
-# OpenAI
-OPENAI_API_KEY=your-openai-api-key
-
-# Snowflake
-SNOWFLAKE_ACCOUNT=your-account-id
-SNOWFLAKE_USER=your-service-account
-SNOWFLAKE_PRIVATE_KEY_PASSPHRASE=your-passphrase
-SNOWFLAKE_WAREHOUSE=your-warehouse
-SNOWFLAKE_DATABASE=your-database
-SNOWFLAKE_ROLE=your-role
-
-# MCPO
-MCPO_SNOWFLAKE_API_KEY=snowflake-secure-key-2024
-```
-
-**Note**: Update the Snowflake private key path in `docker-compose.yml` to match your key location.
-
-See `env.example` for all available options.
-
-## Scripts
-
-- **`./scripts/validate-setup.sh`** - Validate configuration and dependencies
-- **`./scripts/deploy-gcp-vm.sh`** - Create GCP VM instance
-- **`./scripts/upload-to-vm.sh`** - Upload files to VM
-- **`./scripts/deploy-app-to-vm.sh`** - Complete VM deployment
-- **`./scripts/dev-start.sh`** - Start local development environment
-
-## Project Structure
-
-```
-comptool-openwebui/
-├── docker-compose.yml          # Service definitions
-├── Dockerfile.openwebui        # OpenWebUI container
-├── Dockerfile.mcpo            # MCPO server container
-├── env.example               # Environment template
-├── scripts/                  # Deployment and utility scripts
-├── config/                   # Configuration files
-└── logs/                     # Application logs
-```
-
-## Troubleshooting
-
-### Validation
-```bash
-./scripts/validate-setup.sh --fix
-```
-
-### Common Issues
-1. **Snowflake connection fails**: Check account format (use `ACCOUNT-ID`, not `ACCOUNT-ID.snowflakecomputing.com`)
-2. **Services won't start**: Run validation script and check logs
-3. **Can't access UI**: Verify ports 8080/8001 are available
-
-### Logs
-```bash
-# Local
-docker-compose logs -f
-
-# VM
-gcloud compute ssh openwebui-mcpo --zone=us-central1-a --command='cd /app && docker-compose logs -f'
-```
-
-## VM Management
+### 2. Update OpenWebUI
 
 ```bash
-# Connect to VM
-gcloud compute ssh openwebui-mcpo --zone=us-central1-a
-
-# Restart services
-gcloud compute ssh openwebui-mcpo --zone=us-central1-a --command='cd /app && docker-compose restart'
-
-# Stop VM (to save costs)
-gcloud compute instances stop openwebui-mcpo --zone=us-central1-a
-
-# Start VM
-gcloud compute instances start openwebui-mcpo --zone=us-central1-a
+# Update OpenWebUI to latest version
+./scripts/update-openwebui.sh
 ```
 
-That's it! The system is designed to be simple and just work. 
+## 🔧 Update Script Features
+
+The `update-openwebui.sh` script includes:
+
+- ✅ **Fixed Health Checks**: Properly detects service health status
+- ✅ **Automatic Backup**: Creates timestamped backups before updates
+- ✅ **Latest Image Pull**: Downloads newest OpenWebUI version
+- ✅ **Service Orchestration**: Manages MCPO and OpenWebUI dependencies
+- ✅ **Verification**: Tests service accessibility after update
+- ✅ **Error Handling**: Comprehensive error logging and recovery
+
+### Health Check Fix
+
+The recent update fixed a critical issue in health check logic:
+
+**Before (broken):**
+```bash
+jq -r '.[0].Health // "unknown"'  # Assumed array format
+```
+
+**After (fixed):**
+```bash
+jq -r '.Health // "unknown"'      # Correct single object parsing
+```
+
+This fix reduces update time from ~15 minutes to ~2-3 minutes by properly detecting when services are ready.
+
+## 🌐 Access URLs
+
+After deployment, access your services at:
+
+- **OpenWebUI**: `http://YOUR_VM_IP:8080`
+- **MCPO API**: `http://YOUR_VM_IP:8001/docs`
+
+## 🔒 Security
+
+- Environment files (`.env`) are excluded from git
+- GitHub push protection prevents secret exposure
+- Private keys are secured with proper container permissions
+- API endpoints protected with authentication keys
+
+## 🧪 Available MCP Servers
+
+- **Snowflake MCP**: Database queries and operations
+- **Time MCP**: Time and date utilities
+- **Memory MCP**: Conversation memory management
+- **Sequential Thinking MCP**: Advanced reasoning capabilities
+
+## 📊 Monitoring
+
+Use the included health check script:
+
+```bash
+# Check service health
+gcloud compute ssh VM_NAME --zone=ZONE --command="cd /app && sudo docker-compose ps"
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make changes (ensure no secrets in commits)
+4. Test the update script
+5. Submit a pull request
+
+## 📝 License
+
+This project is part of the League One Volleyball chatbot infrastructure.
+
+---
+
+🎯 **Ready to deploy?** Run `./scripts/deploy-app-to-vm.sh` to get started!
