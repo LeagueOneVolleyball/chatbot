@@ -270,7 +270,6 @@ main() {
     
     # Step 6: Verify the update
     verify_update
-    
     # Step 7: Display final information
     display_final_info
 }
