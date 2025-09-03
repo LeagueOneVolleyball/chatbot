@@ -111,4 +111,4 @@ coverage-reports/
 # Editor configurations that should not be shared
 .vscode/settings.json
 .idea/workspace.xml
-.idea/tasks.xml 
+.idea/tasks.xml .env
