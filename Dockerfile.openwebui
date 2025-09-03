@@ -37,7 +37,8 @@ def wait_for_mcpo_server(url: str, timeout: int = 60) -> bool:
     
     for i in range(timeout):
         try:
-            response = requests.get(f"{url}/health", timeout=5)
+            # Try the docs endpoint instead of health
+            response = requests.get(f"{url}/docs", timeout=5)
             if response.status_code == 200:
                 print(f"MCPO server at {url} is ready")
                 return True
@@ -56,13 +57,15 @@ def discover_mcpo_tools(mcpo_url: str, api_key: str = None) -> Dict:
         headers['Authorization'] = f'Bearer {api_key}'
     
     try:
-        response = requests.get(f"{mcpo_url}/tools/list", headers=headers, timeout=10)
+        # Try to get the OpenAPI spec to discover endpoints
+        response = requests.get(f"{mcpo_url}/openapi.json", headers=headers, timeout=10)
         if response.status_code == 200:
-            tools = response.json()
-            print(f"Discovered {len(tools.get('tools', []))} tools from {mcpo_url}")
-            return tools
+            openapi_spec = response.json()
+            endpoints = list(openapi_spec.get('paths', {}).keys())
+            print(f"Discovered {len(endpoints)} endpoints from {mcpo_url}: {endpoints}")
+            return {'endpoints': endpoints, 'openapi_spec': openapi_spec}
         else:
-            print(f"WARNING: Failed to get tools from {mcpo_url}: {response.status_code}")
+            print(f"WARNING: Failed to get OpenAPI spec from {mcpo_url}: {response.status_code}")
             return {}
     except Exception as e:
         print(f"WARNING: Error discovering tools from {mcpo_url}: {e}")

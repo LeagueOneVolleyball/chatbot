@@ -23,8 +23,9 @@ services:
       - MCPO_HOST=0.0.0.0
       - MCPO_API_KEY=${MCPO_SNOWFLAKE_API_KEY:-snowflake-secure-key-2024}
     volumes:
-      - /Users/kevin/dev/keys:/keys:ro
+      - ./keys:/keys:ro
       - ./logs:/var/log/mcpo
+      - ./config:/app/config:ro
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8001/docs"]
       interval: 30s
@@ -36,8 +37,8 @@ services:
       - openwebui-network
     command: >
       sh -c "
-        echo 'Starting MCPO Tools Server on port 8001 with API key security...' &&
-        uvx mcpo --host 0.0.0.0 --port 8001 --api-key '${MCPO_SNOWFLAKE_API_KEY:-snowflake-secure-key-2024}' -- uvx mcp-snowflake
+        echo 'Starting MCPO Tools Server on port 8001 with config file...' &&
+        uvx mcpo --host 0.0.0.0 --port 8001 --api-key '${MCPO_SNOWFLAKE_API_KEY:-snowflake-secure-key-2024}' --config /app/config/mcpo-config.json
       "
 
   # OpenWebUI with MCPO integration
